@@ -1,5 +1,7 @@
-import express  from "express";
 import dotenv from 'dotenv';
+dotenv.config();
+
+import express from "express";
 import cors from 'cors';
 import connectDB from "./db/connectDB.js";
 import patientRouter from './routers/patientRoute.js'
@@ -9,8 +11,6 @@ import dashboardRoute from "./routers/dashboardRoute.js";
 
 //connection of mongodb
 connectDB()
-
-dotenv.config()
 const app = express()
 const PORT = process.env.PORT || 5000
 
@@ -22,12 +22,12 @@ app.use(morgan('dev'))
 
 
 //Routes
-app.use('/patient',patientRouter)
-app.use('/user',userRouter)
-app.use('/mmh',dashboardRoute)
+app.use('/patient', patientRouter)
+app.use('/user', userRouter)
+app.use('/mmh', dashboardRoute)
 
 
 
-app.listen(PORT , ()=>{
+app.listen(PORT, () => {
     console.log(`listening on ${PORT}`);
 }) 
