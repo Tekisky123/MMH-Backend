@@ -70,8 +70,8 @@ export const createPatient = async (req, res) => {
 
 //AWS Upload Code
 aws.config.update({
-    accessKeyId: process.env.AWS_ACCESS_KEY,
-    secretAccessKey: process.env.AWS_SEC_KEY,
+    accessKeyId: process.env.AWSACCESS_KEY,
+    secretAccessKey: process.env.AWSSEC_KEY,
     region: process.env.AWS_REGION,
 });
 
@@ -98,7 +98,7 @@ export const updatePatient = async (req, res) => {
         const id = req.params.id;
         console.log(req.files);
         let patient;
-        console.log("body ===> " ,req.body);
+        console.log("body ===> ", req.body);
         if (req.files != undefined) {
 
             // Assuming req.files is an array of files
@@ -109,7 +109,7 @@ export const updatePatient = async (req, res) => {
             const uploadedImagesUrl = patientDocuments.map(file => ({
                 imageUrl: file.Location,
                 imageName: file.key,
-                
+
 
             }));
 

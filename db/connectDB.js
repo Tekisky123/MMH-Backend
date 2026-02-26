@@ -2,13 +2,13 @@ import mongoose from "mongoose";
 import dotenv from "dotenv";
 dotenv.config()
 
-const MONGO_URL = process.env.MONGO_URL
+const DB_URL = process.env.DB_URL
 
-const connectDB = ()=>{
-    mongoose.connect(MONGO_URL).then(()=>{
+const connectDB = () => {
+    mongoose.connect(DB_URL).then(() => {
         console.log(`Connected to Database Successfully...`);
-    }).catch((err)=>{
-        console.log('Error connecting to MongoDB'); 
+    }).catch((err) => {
+        console.log('Error connecting to MongoDB');
     })
 }
 
